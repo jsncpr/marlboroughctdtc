@@ -4,11 +4,93 @@
 		<%- include('../partials/head'); %>
 		<title>Marlborough, CT Democratic Town Committee</title>
 		<style>
-			
+			article {
+				padding: 20px 0;
+			}
+			article + article {
+				border-top: solid #C3C7C8 1px;
+			}
+
+			header {
+				margin-bottom: 20px;
+			}
+			header .posted-on {
+				color: #666;
+				display: block;
+				font-size: 13px;
+				line-height: normal;
+			}
+
+			.row > * {
+				margin: 0 auto;
+			}
+
+			h1 {
+				margin: 0;
+				text-align: left;
+				text-decoration: none;
+			}
 		</style>
 	</head>
 	<body>
 		<%- include('../partials/navbar', { page: 'latest' }); %>
+
+		<div class="bg-white">
+			<div class="container">
+				<article>
+					<header>
+						<h1>A Brighter Day</h1>
+						<span class="posted-on">January 20, 2021</span>
+					</header>
+					<p>
+						With the inauguration of President Joseph Biden and Vice President Kamala Harris, our country begins a new chapter. Despite a deadly global pandemic and the worst economic crisis since the Great Depression, we can cautiously breathe a sigh of relief after years of holding our collective breath. We can take comfort in the idea that the hard work of repairing the damage has begun, and we can hope again for a future that promises the inclusion of all Americans. 
+					</p>
+					<p>
+						History will judge the events of the last few weeks and years, and in time the picture will be clear in all its ugliness. But now, in this moment, we can exhale for a moment, secure in the promise of a brighter future.
+					</p>
+					<p>
+						Please join the members of the Marlborough Democratic Town Committee in wishing President Biden and Vice President Harris every success in leading us all to a brighter future. 
+					</p>
+					<div class="row">
+						<div class="col-lg-4">
+							<img src="/images/latest/Biden_Harris.jpeg" width="100%">
+						</div>
+					</div>
+				</article>
+				<article>
+					<header>
+						<h1>Marlborough, CT Democrats Seek to Fill Seats</h1>
+						<span class="posted-on">December 15, 2020</span>
+					</header>
+					<p>
+						It takes more than simply living in a town to be a part of the community.  That's why the Marlborough Democratic Town Committee is accepting applications from registered Democrats, Independents, and Unaffiliated voters to serve on our local Boards and Commissions. 
+					</p>
+					<p>
+						Current openings include seats on the Planning Commission, Economic Development Commission, Parks and Recreation Commission, and the Nature Trails and Sidewalks Commission.  We are also looking for individuals to serve as Alternates on the Zoning Board of Appeals, Economic Development Commission, and the Water Pollution Control Authority.
+					</p>
+					<p>
+						For more information, please call Amy Traversa at (860) 771-1134 or Betty O’Brien at (860) 573-0552.  Be the change you want to see!
+					</p>
+				</article>
+				<article>
+					<header>
+						<h1>Thank you!</h1>
+						<span class="posted-on">December 15, 2020</span>
+					</header>
+					<p>
+						The Marlborough Democratic Town Committee extends a sincere thank you to all voters, volunteers, and poll workers who helped make Election Day 2020 a resounding success.
+					</p>
+					<p>
+						Thank you to all who cast their ballots to elect Joe Biden and Kamala Harris as the next President and Vice President of the United States and re-elect Democrats Joe Courtney to the U.S. House of Representatives and Cathy Osten to the Connecticut State Senate. And thank you also to all who supported John Collins in his near-successful bid for State Representative.
+					</p>
+					<div class="row">
+						<div class="col-lg-4">
+							<img src="/images/latest/Election_Day_2020.jpeg" style="border: solid #999 1px;" width="100%">
+						</div>
+					</div>
+				</article>
+			</div>
+		</div>
 
 		<%- include('../partials/footer'); %>
 		<script>
