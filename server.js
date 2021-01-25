@@ -28,6 +28,10 @@ app.get('/', (req, res) => {
 	});
 });
 
+app.get('/latest', (req, res) => {
+	res.render(path.join('pages', 'latest'));
+});
+
 app.use(express.static('public'));
 
 app.listen(app.get('port'), () => {
