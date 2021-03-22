@@ -4,6 +4,11 @@
 		<%- include('../partials/head'); %>
 		<title>Marlborough, CT Democratic Town Committee</title>
 		<style>
+			.w-90 {
+				width: 90% !important;
+			}
+		</style>
+		<style>
 			#hero {
 				background: linear-gradient(rgba(6, 62, 114, 0.95), rgba(6, 62, 114, 0.25)), url('/images/hero/<%= hero %>');
 				background-position: top;
@@ -11,27 +16,29 @@
 				background-size: cover;
 				color: white;
 				height: 200px;
-				padding: 16px 0 0;
-				text-align: center;
+				position: relative;
 				width: 100%;
 			}
-			@media (min-width: 992px) { /* Bootstrap large breakpoint */
-				#hero {
-					background-position: center;
-					height: 300px;
-				}
+			#hero .title-wrapper {
+				background: rgba(156, 196, 228, 0.25);
+				padding: 8px 0;
+				position: absolute;
+				top: 25px;
+				width: 100%;
 			}
-			#hero h1,
-			#hero h2 {
+			#hero .title-wrapper h1,
+			#hero .title-wrapper h2 {
 				color: white;
 				font-family: "Trebuchet MS", sans-serif;
 				font-weight: bold;
+				margin: 0;
+				text-align: center;
 				text-decoration: none;
 			}
-			#hero h1 {
-				font-size: 36px;
+			#hero .title-wrapper h1 {
+				font-size: 28px;
 			}
-			#hero h2 {
+			#hero .title-wrapper h2 {
 				font-size: 20px;
 			}
 
@@ -70,14 +77,28 @@
 			}
 
 			#mission {
+				background-image: url('/images/Democrats_Care_Logo.png');
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: auto 90%;
+				border-bottom: solid #CCC 1px;
+				position: relative;
+				text-align: center;
+			}
+			#mission::before {
 				background: white;
+				bottom: 0;
+				content: "";
+				left: 0;
+				opacity: 90%;
+				position: absolute;
+				right: 0;
+				top: 0;
 			}
 
-			#next-meeting {
-				background: #E9F2F9;
-			}
 			#next-meeting p {
 				font-size: 12px;
+				text-align: center;
 			}
 
 			#gallery {
@@ -123,14 +144,35 @@
 				font-weight: bold;
 				padding: 10px 20px;
 			}
+
+			@media (min-width: 992px) { /* Bootstrap large breakpoint */
+				#hero {
+					background-position: center;
+					height: 250px;
+				}
+
+				#mission {
+					border-bottom: none;
+					border-right: solid #CCC 1px;
+				}
+			}
 		</style>
 	</head>
 	<body>
 		<%- include('../partials/navbar', { page: 'index' }); %>
-
 		<div id="hero">
-			<h1 class="d-none d-lg-block">Marlborough, CT Democratic Town Committee</h1>
-			<h2 class="d-lg-none">Marlborough, CT<br>Democratic Town Committee</h2>
+			<div class="title-wrapper">
+				<div class="container">
+					<h1 class="d-none d-lg-block">
+						Marlborough, Connecticut Democratic Town Committee
+					</h1>
+					<h2 class="d-lg-none">
+						Marlborough, CT
+						<br>
+						Democratic Town Committee
+					</h2>
+				</div>
+			</div>
 		</div>
 		<section id="notice">
 			<div class="container d-none d-lg-block">
@@ -168,18 +210,18 @@
 				</a>
 			</div>
 		</section>
-		<div class="container">
-			<div class="row">
-				<section id="mission" class="col-lg">
-					<div class="container">
-						<h1>OUR MISSION</h1>
-						<p>
-							The Marlborough Democratic Town Committee, through our advocacy efforts and our support of the platform of the Democrat Party, will engage the people of Marlborough in actions that promote a well-managed, vibrant and caring community.
-						</p>
-					</div>
-				</section>
-				<section id="next-meeting" class="col-lg">
-					<div class="container">
+		<div class="bg-white">
+			<div class="container">
+				<div class="row">
+					<section id="mission" class="col-lg-8">
+						<div class="mx-auto position-relative w-90">
+							<h1>OUR MISSION</h1>
+							<p>
+								The Marlborough Democratic Town Committee, through our advocacy efforts and our support of the platform of the Democrat Party, will engage the people of Marlborough in actions that promote a well-managed, vibrant and caring community.
+							</p>
+						</div>
+					</section>
+					<section id="next-meeting" class="col-lg-4">
 						<h1>NEXT MEETING</h1>
 						<div class="align-items-end d-flex justify-content-center">
 							<canvas class="me-4" height="112" id="calendar-date" width="100"></canvas>
@@ -189,11 +231,11 @@
 								</a>
 							</div>
 						</div>
-						<p class="mb-0 mt-3">
+						<p class="mb-0 mt-3 mx-auto w-90">
 							Due to the ongoing pandemic, all meetings are held virtually via Zoom. For instructions on joining the Zoom call ahead of the next meeting, please <a href="#contact-us">contact us</a>.
 						</p>
-					</div>
-				</section>
+					</section>
+				</div>
 			</div>
 		</div>
 		<div id="gallery">
