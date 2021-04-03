@@ -336,13 +336,13 @@
 						<ul>
 							<li class="mb-0">
 								<i class="bi-input-cursor-text"></i>
-								<!-- TODO -->
-								<form>
-									<input class="mb-2" placeholder="Your email address" type="email">
+								<form id="contact-form">
+									<input class="mb-2" name="email" placeholder="Your email address" type="email">
 									<br>
-									<textarea class="mb-1" placeholder="Your message" rows="5"></textarea>
+									<textarea class="mb-1" name="message" placeholder="Your message" rows="5"></textarea>
 									<br>
 									<button type="submit">Send</button>
+									<span class="form-notice ms-2"></span>
 								</form>
 							</li>
 						</ul>
@@ -497,6 +497,37 @@
 			(function($) {
 				drawCalendar();
 				addCollapseListeners();
+
+				$('#contact-form').submit(function(e) {
+					e.preventDefault();
+
+					const $emailInput = $('[name="email"]', this);
+					const $messageInput = $('[name="message"]', this);
+					const $formNotice = $('.form-notice', this);
+
+					$emailInput.removeClass(['border', 'border-danger']);
+					$messageInput.removeClass(['border', 'border-danger']);
+					$formNotice.removeClass(['text-danger', 'text-success']);
+
+					// https://stackoverflow.com/questions/201323/how-to-validate-an-email-address-using-a-regular-expression
+					if (!/^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/.test($emailInput.val())) {
+						$emailInput.addClass(['border', 'border-danger']);
+						$formNotice.addClass('text-danger').text('Invalid email address');
+					} else if ($messageInput.val().trim().length === 0) {
+						$messageInput.addClass(['border', 'border-danger']);
+						$formNotice.addClass('text-danger').text('Please enter a message');
+					} else {
+						$.post('/feedback', $(this).serialize())
+							.then(() => {
+								$emailInput.val('');
+								$messageInput.val('');
+								$formNotice.addClass('text-success').text('Thank you for your feedback!');
+							})
+							.catch(() => {
+								$formNotice.addClass('text-danger').text('Error submitting feedback');
+							});
+					}
+				});
 			})(jQuery);
 		</script>
 	</body>

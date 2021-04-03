@@ -1,4 +1,5 @@
 require('dotenv').config();
+const bodyParser = require('body-parser');
 const express = require('express');
 const fs = require('fs');
 const _sample = require('lodash/sample');
@@ -10,6 +11,7 @@ const app = express();
 app.set('port', process.env.PORT);
 app.set('view engine', 'ejs');
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 app.get('/', (req, res) => {
@@ -30,6 +32,12 @@ app.get('/', (req, res) => {
 
 app.get('/latest', (req, res) => {
 	res.render(path.join('pages', 'latest'));
+});
+
+app.post('/feedback', (req, res) => {
+	// const { email, message } = req.body;
+
+	res.end();
 });
 
 app.use(express.static('public'));
