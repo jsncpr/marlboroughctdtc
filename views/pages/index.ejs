@@ -524,10 +524,10 @@
 							.then(() => {
 								$emailInput.val('');
 								$messageInput.val('');
-								$formNotice.addClass('text-success').text('Thank you for your feedback!');
+								$formNotice.addClass('text-success').text('Thank you for your message!');
 							})
 							.catch(() => {
-								$formNotice.addClass('text-danger').text('Error submitting feedback');
+								$formNotice.addClass('text-danger').text('Error submitting message');
 							});
 					}
 				});

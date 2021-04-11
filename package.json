@@ -3,10 +3,12 @@
   "description": "Website for the Marlborough, Connecticut Democratic Town Committee",
   "author": "Jason Cooper <jasonacooper@gmail.com>",
   "dependencies": {
+    "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "lodash": "^4.17.20",
+    "qs": "^6.10.1",
     "serve-favicon": "^2.5.0"
   },
   "engines": {
